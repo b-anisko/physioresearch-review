@@ -4,6 +4,8 @@ import Link from "next/link";
 import { useState } from "react";
 import { home } from "@/data/home";
 
+const memberAreaUrl = "https://physioresearch-hub.vercel.app/login";
+
 export function SiteHeader() {
   const [mobileOpen, setMobileOpen] = useState(false);
 
@@ -36,7 +38,7 @@ export function SiteHeader() {
           </div>
         </Link>
 
-        <nav className="hidden items-center gap-5 xl:flex">
+        <nav className="hidden shrink-0 items-center gap-4 xl:flex">
           {regularLinks.map((item) => (
             <a
               key={item.label}
@@ -56,6 +58,12 @@ export function SiteHeader() {
               {contactLink.label}
             </a>
           ) : null}
+          <a
+            href={memberAreaUrl}
+            className="inline-flex min-h-11 items-center justify-center whitespace-nowrap rounded-md bg-[#ff642b] px-4 py-2 text-[12px] font-semibold text-[#242528] transition-colors hover:bg-[#ff7b4b] focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-[#242528]"
+          >
+            Strefa członków
+          </a>
         </nav>
 
         <button
@@ -90,6 +98,13 @@ export function SiteHeader() {
                 </a>
               ))}
             </div>
+            <a
+              href={memberAreaUrl}
+              onClick={() => setMobileOpen(false)}
+              className="mt-4 flex min-h-12 items-center justify-center rounded-md bg-[#ff642b] px-4 py-3 text-sm font-semibold text-[#242528] transition-colors hover:bg-[#ff7b4b] focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-[#242528]"
+            >
+              Strefa członków
+            </a>
           </nav>
         </div>
       ) : null}
